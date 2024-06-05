@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>este es el indice planilla</h1>
+<div class="container-productos">
+    <h3 class="header-productos">
+        Listas de productos
+    </h3>
+    <div class="row">
+        {% for pastel in pasteles %}
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-img-top-container">
+                        <img src="{{ pastel.imagen_url }}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pastel.nombre }}</h5>
+                        <p class="card-text alto-descrp">{{ pastel.descripcion }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">$ {{ pastel.precio }}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
