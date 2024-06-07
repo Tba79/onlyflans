@@ -1,6 +1,6 @@
 pasteles = [
     {
-    'id': 1,
+        'id': 1,
         'nombre': 'Flan de café',
         'descripcion': 'El flan de café es perfecto para los amantes de esta bebida.',
         'imagen_url': 'https://imag.bonviveur.com/flan-de-cafe.webp',
@@ -12,6 +12,7 @@ pasteles = [
         'descripcion': 'Flan con trozos de galletas clasicas de galletas María.',
         'imagen_url': 'https://imag.bonviveur.com/presentacion-principal-del-flan-de-galletas-maria.webp',
         'precio': 2500,
+
     },
     {
         'id': 3,
@@ -26,5 +27,6 @@ pasteles = [
         'descripcion': 'Flan irresistible, de textura sedosa y con un intenso sabor a chocolate.',
         'imagen_url': 'https://imag.bonviveur.com/flan-de-chocolate.webp',
         'precio': 3500,
+
     },
 ]

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <div class="welcome-section">
         <div class="row align-items-center">
             <div class="col-md-6 text-center mb-4 mb-md-0">
@@ -10,7 +11,7 @@
             </div>
             <div class="col-md-6">
                 <div class="welcome-text-column">
-                    <h2>Bievenidos a los OnlyFlaneros del mundo</h2>
+                    <h2>Bienvenidos OnlyFlaneros del mundo</h2>
                     <p>Les damos la buena pa' dentro a usted y al otro también. Somos una familia que por generaciones casi ancestrales hemos cultivado el amor absoluto al flan casero. Nuestros     flanes han sido famosos, desde el Himalaya hasta la Pincoya y nuestras recetas han visto caer imperios y a otros que a medio morir saltando y siguen siendo fieles a nuestras     dulces ¡Esos son los verdaderos OnlyFlanero Lover!</p>
                 </div>
             </div>
@@ -21,27 +22,29 @@
 
 
     
-    <section id="contacto" class="text-center mt-5 mb-5"> <!-- Añadido margen arriba y abajo -->
+    <section id="contacto" class="text-center" >
         <h1>Contactanos a nuestro OnlyFlanMail <i class="fa-solid fa-heart"></i></h1>
+        {% for error in errores %}
+            <div class="alert alert_danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+        
         <div class="container">
 
-            <form action="/action_page.php" id="form">
-                <div class="form-group">
-                    <input type="text" id="fname" name="firstname" placeholder="Nombre" class="form-control col-3">
+            <form action="/contact_form" method ="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="customer_name" placeholder="Nombre">
                 </div>
-            
-                <div class="form-group">
-                    <input type="text" id="lname" name="lastname" placeholder="Asunto" class="form-control col-3">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="customer_email" placeholder="Email">
                 </div>
-            
-                <div class="form-group">
-                    <textarea id="subject" name="subject" style="height:200px" placeholder="Mensaje" class="form-control col-3"></textarea>
+                <div class="mb-3">
+                    <textarea class="form-control" style="height:200px" rows="3" name="message" placeholder="Mensaje"></textarea>
                 </div>
-            
-                <input type="submit" class="btn btn-outline-rgb" data-bs-toggle="tooltip"
-                    data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Confirmar Mensaje" value="Enviar">
+                <button class="btn btn-outline-rgb">Enviar</button>
             </form>
         </div>
-    </section>
+
 {% endblock %}
