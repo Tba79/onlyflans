@@ -31,21 +31,16 @@
         {% endfor %}
         
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6" style="text-align: left;">
+                    <form action="/welcome/" method ="post" class="contact-form">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-outline-rgb mb-4">Enviar</button>
+                    </form>
 
-            <form action="/welcome/" method ="post">
-                {% csrf_token %}
-                <!-- <div class="mb-3">
-                    <input type="text" class="form-control" name="customer_name" placeholder="Nombre">
                 </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" name="customer_email" placeholder="Email">
-                </div>
-                <div class="mb-3">
-                    <textarea class="form-control" style="height:200px" rows="3" name="message" placeholder="Mensaje"></textarea>
-                </div> -->
-                {{ form }}
-                <button class="btn btn-outline-rgb mb-4">Enviar</button>
-            </form>
+            </div>
         </div>
-
+    </section>
 {% endblock %}

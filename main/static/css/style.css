@@ -195,24 +195,7 @@
     color: rgb(117, 123, 208);
 }
 
-.form-group {
-    margin-bottom: 20px; /* Espacio entre campos de formulario */
-    text-align: center; /* Alineación de cada campo de formulario al centro */
-}
 
-.form-control {
-    display: block;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.col-3 {
-    width: 100%; /* Ancho del campo de formulario */
-}
-
-.form-group { /* Desaparecer el placeholder al escribir */
-    color: transparent;
-}
 
 
 .fa-heart{
@@ -261,4 +244,15 @@ a{
 
 h1{
     margin-bottom: 2rem;
+}
+
+/*Estilos generales de PLACEHOLDERS*/
+::placeholder{
+    font-style: italic;
+}
+
+/*Estilos generales de LABEL*/
+label{
+    text-align: left;
+
 }

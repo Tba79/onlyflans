@@ -25,5 +25,3 @@ class ContactForm(forms.Form):
             'placeholder': 'Ingrese su mensaje'
         })
     )
-
-

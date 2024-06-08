@@ -37,5 +37,7 @@ def contactcheck (request):
 
 
 def ayuda (request):
-    return render(request, 'ayuda.html')
-
+    form = ContactForm() #Se crea instancia del formulario
+    context ={'form':form} #Se crea contexto que contienen formulario
+    return render(request, 'ayuda.html', context) #Renderiza plantilla 
+    
