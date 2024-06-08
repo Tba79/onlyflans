@@ -32,9 +32,9 @@
         
         <div class="container">
 
-            <form action="/contact_form" method ="post">
+            <form action="/welcome/" method ="post">
                 {% csrf_token %}
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <input type="text" class="form-control" name="customer_name" placeholder="Nombre">
                 </div>
                 <div class="mb-3">
@@ -42,7 +42,8 @@
                 </div>
                 <div class="mb-3">
                     <textarea class="form-control" style="height:200px" rows="3" name="message" placeholder="Mensaje"></textarea>
-                </div>
+                </div> -->
+                {{ form }}
                 <button class="btn btn-outline-rgb">Enviar</button>
             </form>
         </div>
