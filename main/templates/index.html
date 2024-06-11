@@ -6,18 +6,18 @@
         Listas de productos
     </h3>
     <div class="row">
-        {% for pastel in pasteles %}
+        {% for flan in flanes %}
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="card mb-4">
                     <div class="card-img-top-container">
-                        <img src="{{ pastel.imagen_url }}" class="card-img-top" alt="...">
+                        <img src="{{ flan.imagen_url }}" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ pastel.nombre }}</h5>
-                        <p class="card-text alto-descrp">{{ pastel.descripcion }}</p>
+                        <h5 class="card-title">{{ flan.nombre }}</h5>
+                        <p class="card-text alto-descrp">{{ flan.descripcion }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$ {{ pastel.precio }}</li>
+                        <li class="list-group-item">$ {{ flan.precio }}</li>
                     </ul>
                     <div class="card-body">
                         <a href="#" class="card-link">Agregar al carrito</a>

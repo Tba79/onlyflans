@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+    
+    <section id="contacto" class="text-center" >
+        <h1>Contactanos a nuestro OnlyFlanMail <i class="fa-solid fa-heart"></i></h1>
+        {% for error in errores %}
+            <div class="alert alert_danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+        
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6" style="text-align: left;">
+                    <form action="/contact/" method ="post" class="contact-form">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="btn btn-outline-rgb mb-4">Enviar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
