@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from main.pasteles import pasteles
+#from main.pasteles import pasteles
 from main.forms import ContactForm
 from main.models import Contact, Flan
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth import logout
+from django.contrib import messages
 
 # Create your views here.
 def index (request):
@@ -55,8 +58,24 @@ def ayuda (request):
         context = {'form': form} # Se crea un contexto que contiene el formulario con los datos (válidos o no).
         return render(request, 'ayuda.html', context) # Se vuelve a renderizar la plantilla con el contexto actualizado.
     
+    
+@login_required    
 def welcome(request):
     #debe mostrar solo los flanes privados de la base de daros
     flanes_privados = Flan.objects.filter(is_private = True)
     context = {'flanes': flanes_privados}
     return render(request, 'welcome.html', context)
+    """return render(
+        request, 'welcome.html', {'flanes_privados': flanes_privados}
+    )"""
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def logout_view(request):
+    logout (request)
+    messages.success(request, "chao pescao")
+    return redirect ('/')

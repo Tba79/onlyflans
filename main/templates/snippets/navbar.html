@@ -9,9 +9,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/welcome">Bienvenido</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="/welcome">Bienvenido</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Sobre Nosotros</a>
                 </li>
@@ -21,11 +23,36 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contacto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Registrate</a>
+                </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="...">
-                <button class="btn btn-outline-rgb" type="submit">Buscar</button>
-            </form>
+            <div class="d-flex" role="search">
+                {% if user.is_authenticated %}
+                <span class="d-inline-block m-1">
+                    HOLA {{ user.username }}
+                </span>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        LOUGOUAT
+                    </button>
+                </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-sm">LOGIN</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </nav>
+
+{% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong> You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}

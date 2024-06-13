@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Registrate:</h1>
+<div class="row">
+    <div class="col-4 offset-4">
+        <form>
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="Mail" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Ingresa Password</label>
+                <input type="password" class="form-control" name="Password1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Repita Password</label>
+                <input type="password" class="form-control" name="password2">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

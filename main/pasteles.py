@@ -1,4 +1,4 @@
-pasteles = [
+'''pasteles = [
     {
         'id': 1,
         'nombre': 'Flan de café',
@@ -59,4 +59,4 @@ pasteles = [
         'precio': 3500,
 
     },
-]
+]'''
