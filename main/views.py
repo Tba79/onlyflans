@@ -6,6 +6,11 @@ from main.models import Contact, Flan
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth import logout
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.views import LoginView
+
+class LoginViewPropia(SuccessMessageMixin, LoginView):
+    success_message="Bienvenido BB"
 
 # Create your views here.
 def index (request):
@@ -77,5 +82,5 @@ def register(request):
 
 def logout_view(request):
     logout (request)
-    messages.success(request, "chao pescao")
+    messages.warning(request, "Nos vemos pronto BB")
     return redirect ('/')
