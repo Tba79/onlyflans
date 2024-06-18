@@ -1,19 +1,15 @@
 from django.urls import path #siempre va importa path
-from main.views import index, about, welcome, ayuda, contactcheck, contact, login, register, logout_view #importa las funciones
+from . import views #importa las funciones
 
 
 
 urlpatterns = [
-    path('', index),
-    path('about/', about),
-    path('welcome/', welcome),
-    path('contact/', contact),
-    path('ayuda/', ayuda),
-    path('contactcheck/', contactcheck),
-    #path('login/', login),
-    path('register/', register),
-    path('logout/', logout_view, name='logout'),
-
-    
-    
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('product/', views.product, name='product'),
+    path('contact/', views.contact, name='contact'),
+    path('ayuda/', views.ayuda, name='ayuda'),
+    path('contactcheck/', views.contactcheck, name='contactcheck'),
+    path('register/', views.register, name='register'),
+    path('logout/', views.logout_view, name='logout'),
 ]

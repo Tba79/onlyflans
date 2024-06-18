@@ -1,30 +1,102 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-productos">
-    <h3 class="header-productos">
-        Listas de productos
-    </h3>
-    <div class="row">
-        {% for flan in flanes %}
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card mb-4">
-                    <div class="card-img-top-container">
-                        <img src="{{ flan.imagen_url }}" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ flan.nombre }}</h5>
-                        <p class="card-text alto-descrp">{{ flan.descripcion }}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">$ {{ flan.precio }}</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Agregar al carrito</a>
+<div class="index-container">
+    <div id="myCarousel" class="carousel slide mb-6 pointer-event" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://pasionporlareposteriaymuchomas.com/wp-content/uploads/2021/05/Flanes_japoneses.jpg" class="d-block w-100" alt="Flan japonés">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>BIENVENIDO</h1>
+                        <span class="slice-parraf">¡Los mejores flanes de la cuadra BB!</span>
+                        <p><a class="btn btn-lg btn-primary" href="product/">Compra Acá</a></p>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            <div class="carousel-item">
+                <img src="https://www.recipetineats.com/wp-content/uploads/2021/10/Flan-Patissier_79.jpg" class="d-block w-100" alt="Flan patissier">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>FLANES</h1>
+                        <span class="slice-parraf">Para mi, para ti, para todes los BBs! <i class="fa-solid fa-heart"></i></span>
+                        <p><a class="btn btn-lg btn-primary" href="product/">Ver productos</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://parischezsharon.com/wp-content/uploads/2021/07/Paris-chez-Sharon-30-1.jpg" class="d-block w-100" alt="Paris chez Sharon">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>REGISTRATE</h1>
+                        <span class="slice-parraf">y obtén descuentos de BBS del amors <i class="fa-solid fa-heart"></i></span>
+                        <p><a class="btn btn-lg btn-primary" href="register/">Registrarse</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+
+
+    <div class="index-section mb-6">
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center mb-4 mb-md-0">
+                <div class="img-container">
+                    <img src="https://www.onceuponachef.com/images/2019/04/flan-760x934.jpg" class="featurette-image img-fluid mx-auto" alt="Flan delicioso">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="text-center text-md-start mb-4">
+                    <h2 class="featurette-heading mb-3">Nosotros, los OnlyFlaneros</h2>
+                    <p class="lead">¡Aquí encontrarás los mejores flanes de la cuadra BB!</p>
+                    <p class="lead">Somos una empresa familiar de OnlyFlaneros, buscamos deleitaros como usted lo merece. Trabajamos con los mejores ingredientes para ofrecerte los flanes más deliciosos y tradicionales. ¡Nuestros flanes son famosos y te aseguramos que te chuparás los dedos!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="index-section mb-6">
+        <div class="row mt-4">
+            <div class="col-md-6 order-md-2">
+                <section id="mapa">
+                    <div class="container text-center">
+                        <h2>Visítanos! Estamos ubicados en</h2>
+                        <p>Av. Providencia 875, Providencia, Región Metropolitana</p>
+                    </div>
+                    <div class="map-container mt-4">
+                        <!-- Aquí puedes integrar el mapa de Google según la API -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.7066656630823!2d-70.62222718480924!3d-33.432531080782245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5ea139e2e53%3A0xb73f4218b0e5393b!2sAv.%20Providencia%20875%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1sen!2sus!4v1623833683193!5m2!1sen!2sus"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-6 order-md-1 d-flex align-items-center">
+                <section id="contacto">
+                    <div class="container text-center">
+                        <h1 class="my-4">Contáctanos a nuestro OnlyFlanMail <i class="fa-solid fa-heart"></i></h1>
+                        <a href="contact/" class="btn btn-primary mt-3">Escribenos BB</a>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,30 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-
-
-    
-    <section id="contacto" class="text-center" >
-        <h1>Contactanos a nuestro OnlyFlanMail <i class="fa-solid fa-heart"></i></h1>
-        {% for error in errores %}
-            <div class="alert alert_danger" role="alert">
-                {{ error }}
+    <div class="container mt-5 mb-5">
+        <section id="contacto" class="text-center">
+            <h1>Contactanos a nuestro OnlyFlanMail <i class="fa-solid fa-heart"></i></h1>
+            {% for error in errores %}
+                <div class="alert alert_danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6" style="text-align: left;">
+                        <form action="/contact/" method="post" class="contact-form">
+                            {% csrf_token %}
+                            {{ form }}
+                            <button class="btn btn-primary w-100 mt-3">Enviar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
-        
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6" style="text-align: left;">
-                    <form action="/contact/" method ="post" class="contact-form">
-                        {% csrf_token %}
-                        {{ form }}
-                        <button class="btn btn-outline-rgb mb-4">Enviar</button>
-                    </form>
+        </section>
 
+        <div class="index-section mb-6">
+            <div class="row mt-4">
+                <div class="col-md-6 offset-md-3">
+                    <section id="mapa">
+                        <div class="container text-center">
+                            <h2>Visítanos! Estamos ubicados en</h2>
+                            <p>Av. Providencia 875, Providencia, Región Metropolitana</p>
+                        </div>
+                        <div class="map-container mt-4">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.7066656630823!2d-70.62222718480924!3d-33.432531080782245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5ea139e2e53%3A0xb73f4218b0e5393b!2sAv.%20Providencia%20875%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1sen!2sus!4v1623833683193!5m2!1sen!2sus"
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 {% endblock %}
+

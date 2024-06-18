@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <h1 class="text-center">Regístrate a nuestra Comunidad BB <i class="fa-solid fa-heart"></i></h1>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <form action="{% url 'register' %}" method="post" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuario:</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Ingresa tu usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label">Confirma tu Contraseña:</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Repite tu contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                </form>
+                <p class="text-center mt-3">Si ya tienes cuenta <a href="#" data-bs-toggle="modal" data-bs-target="#modalSignin">accede</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+
+        if (password !== confirmPassword) {
+            alert("Las contraseñas no coinciden. Por favor, verifica.");
+            return false;
+        }
+        return true;
+    }
+    </script>
+{% endblock %}

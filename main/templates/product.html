@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="header-product">
+        Productos
+    </h1>
+    <div class="row">
+        {% for flan in flanes %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+                <img src="{{ flan.imagen_url }}" class="card-img-top" alt="Imagen de {{ flan.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flan.nombre }}</h5>
+                    <p class="card-text">{{ flan.descripcion }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">$ {{ flan.precio }}</li>
+                </ul>
+                <div class="card-footer">
+                    {% if flan.tipo_flan == 'mayores' %}
+                        {% if not flan.verificador_edad %}
+                            <button id="btn-verificar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal{{ flan.id }}">Verificar edad</button>
+                        {% else %}
+                            <a href="#" id="btn-agregar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal{{ flan.id }}">Producto para mayores de 18+</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="#" id="btn-agregar-{{ flan.id }}" class="btn btn-primary">Agregar al carrito</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Modal para verificar edad -->
+        {% if flan.tipo_flan == 'mayores' and not flan.verificador_edad %}
+        <div class="modal fade" id="verificarEdadModal{{ flan.id }}" tabindex="-1" role="dialog" aria-labelledby="verificarEdadModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="verificarEdadModalLabel">Verificación de edad</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Por favor, verifica que eres mayor de 18 años para agregar este flan al carrito.</p>
+                        <form method="POST" action="{% url 'verificar_edad' flan.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-warning">Verificar edad</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+

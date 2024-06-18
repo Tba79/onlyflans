@@ -1,0 +1,79 @@
+
+/* CARRUSEL
+  -------------------------------------------------- */
+
+
+.carousel {
+    margin-bottom: 4rem;
+}
+
+
+.carousel-caption h1{
+    bottom: 3rem;
+    z-index: 10;
+    text-align: right;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.slice-parraf{
+    box-shadow: 0 0 0 5px rgb(74, 78, 137);
+    background-color: rgb(74, 78, 137);
+    line-height: 2.2;
+    font-size: 25px;
+    color: white;
+
+    
+
+}
+
+.carousel-item {
+    overflow: hidden;
+    position: relative;
+    height: 32rem;
+}
+
+.carousel-item::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 40em) {
+    .carousel-item {
+        height: auto;
+    }
+
+    .carousel-item::before {
+        padding-top: 0;
+    }
+
+    .carousel-item img {
+        position: relative;
+        height: 32rem;
+    }
+
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+}
+
+@media (min-width: 62em) {
+    .featurette-heading {
+        margin-top: 7rem;
+    }
+}
+

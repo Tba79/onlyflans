@@ -1,21 +1,20 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-<section id="contacto" class="text-center">
-    <h1>Te ayudamos? Escribenos al FlanAyuda BB</h1>
+<section id="contacto" class="text-center my-5">
+    <h1 class="mb-4">¿Te ayudamos? Escríbenos al FlanAyuda BB</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6" style="text-align: left;">
-                <form action="/ayuda/" method ="post" class="contact-form">
+                <form action="/ayuda/" method="post" class="contact-form">
                     {% csrf_token %}
                     {{ form }}
-                    <button class="btn btn-outline-rgb mb-4">Enviar</button>
+                    <button class="btn btn-primary w-100 mt-3">Enviar</button>
                 </form>
-
             </div>
         </div>
     </div>
-
 </section>
 {% endblock %}
 
