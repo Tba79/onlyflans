@@ -20,9 +20,9 @@
                 <div class="card-footer">
                     {% if flan.tipo_flan == 'mayores' %}
                         {% if not flan.verificador_edad %}
-                            <button id="btn-verificar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal{{ flan.id }}">Verificar edad</button>
+                            <button id="btn-verificar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal">Verificar edad</button>
                         {% else %}
-                            <a href="#" id="btn-agregar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal{{ flan.id }}">Producto para mayores de 18+</a>
+                            <a href="#" id="btn-agregar-{{ flan.id }}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#verificarEdadModal">Producto para mayores de 18+</a>
                         {% endif %}
                     {% else %}
                         <a href="#" id="btn-agregar-{{ flan.id }}" class="btn btn-primary">Agregar al carrito</a>
@@ -31,8 +31,8 @@
             </div>
         </div>
         <!-- Modal para verificar edad -->
-        {% if flan.tipo_flan == 'mayores' and not flan.verificador_edad %}
-        <div class="modal fade" id="verificarEdadModal{{ flan.id }}" tabindex="-1" role="dialog" aria-labelledby="verificarEdadModalLabel" aria-hidden="true">
+        {% endfor %}
+        <div class="modal fade" id="verificarEdadModal" tabindex="-1" role="dialog" aria-labelledby="verificarEdadModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="modal-body">
                         <p>Por favor, verifica que eres mayor de 18 años para agregar este flan al carrito.</p>
-                        <form method="POST" action="{% url 'verificar_edad' flan.id %}">
+                        <form method="POST">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-warning">Verificar edad</button>
                         </form>
@@ -51,8 +51,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
 </div>
 {% endblock %}
